@@ -14,27 +14,27 @@ import java.io.InputStreamReader;
 import agent.MinimaxAgent;
 
 public class Game {
-	int numToWin, playerNumber, timeLimit;
-	boolean myTurn;
-	Board board;
-	MinimaxAgent agent;
-	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	
-	public Game(int height, int width, int numToWin, int playerNumber, int timeLimit){
-		this.numToWin = numToWin;
-		this.playerNumber = playerNumber;
-		this.timeLimit = timeLimit;
-		
-		board = new Board(height, width);
-		agent = new MinimaxAgent(board, numToWin);
-	}
-	
-	/*
-	 * Main loop for playing connect N
-	 */
-	public void play() throws NumberFormatException, IOException{
-		myTurn = (playerNumber == 0) ? true: false;
-		int move;
+    int numToWin, playerNumber, timeLimit;
+    boolean myTurn;
+    Board board;
+    MinimaxAgent agent;
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    
+    public Game(int height, int width, int numToWin, int playerNumber, int timeLimit){
+        this.numToWin = numToWin;
+        this.playerNumber = playerNumber;
+        this.timeLimit = timeLimit;
+        
+        board = new Board(height, width);
+        agent = new MinimaxAgent(board, numToWin);
+    }
+    
+    /*
+     * Main loop for playing connect N
+     */
+    public void play() throws NumberFormatException, IOException{
+        myTurn = (playerNumber == 0) ? true: false;
+        int move;
         while (true) {
             if (myTurn) {
                
@@ -62,12 +62,12 @@ public class Game {
             myTurn = !myTurn;
         }
 
-	}
-	
-	/*
-	 * Returns the move chosen from minimax algorithm
-	 */
-	public int getMove(){
-		return agent.alphaBetaMinimax();
-	}
+    }
+    
+    /*
+     * Returns the move chosen from minimax algorithm
+     */
+    public int getMove(){
+        return agent.alphaBetaMinimax();
+    }
 }
